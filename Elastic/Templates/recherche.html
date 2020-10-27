@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Pacifico">
+    
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
+
+    <title>ES Engine</title>
+
+  </head>
+  <body>
+
+  <div class="container">
+    <div style="background:transparent !important" class="jumbotron">
+      <div style="font-family: 'Pacifico', cursive;">
+        <p>
+          <center>
+            <p style = "font-family:courier,arial,helvetica;">
+              Write your search here
+              </p>
+          </center>
+        </p>
+      </div>
+    </div>
+
+  <form action="/search" method="post">
+    <div class="input-group">
+      <input type="text" class="form-control input-lg" name="input" placeholder="Search"  autofocus>
+      <div class="input-group-btn">
+        <button class="btn btn-dark btn-lg" type="submit">
+          <i class="glyphicon glyphicon-search"></i>
+        </button>
+      </div>
+    </div>
+  </form>
+
+  <center>
+      <h1>Number of results found: ({{ res['hits']['total']['value'] }}) </h1>
+  </center>
+
+  <table class="table">
+
+{% for hit in res['hits']['hits'] %}
+ 
+    <div>
+   
+    <img src={{ 'http://farm' + hit["_source"]["flickr_farm"] + ".staticflickr.com/" +
+    hit["_source"]["flickr_server"] + "/" + hit["_source"]["id"] + "_" + hit["_source"]["flickr_secret"] +
+    ".jpg"}} />
+    </div>
+{% endfor %}
+  </table>
+
+
+
+      </div>
+    </div>
+  </body>
+</html>
