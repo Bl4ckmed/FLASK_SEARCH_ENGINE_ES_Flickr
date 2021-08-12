@@ -1,4 +1,7 @@
 # FLASK_SEARCH_ENGINE_ES
+Note: You can find the full project report commited to the repository as a pdf file.
+
+
 A search engine by images tags in the flickr images dataset powered by Flask and ElasticSearch  
 
 To run this project, you need at first to install elasticsearch and logstash 
